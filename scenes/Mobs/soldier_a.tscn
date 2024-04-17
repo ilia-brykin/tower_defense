@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_pi0y7"]
 
 [node name="SoldierA" type="CharacterBody2D"]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 script = ExtResource("1_h4xvw")
 
 [node name="TowerDefenseTile245" type="Sprite2D" parent="."]
