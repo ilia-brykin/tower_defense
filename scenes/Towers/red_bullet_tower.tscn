@@ -1,7 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5tdt4ga78a8u"]
+[gd_scene load_steps=18 format=3 uid="uid://b5tdt4ga78a8u"]
 
 [ext_resource type="Texture2D" uid="uid://dde1r3ov8ix0f" path="res://assets/PNG/Default size/towerDefense_tile250.png" id="1_8mmo8"]
 [ext_resource type="Script" path="res://scenes/Towers/red_bullet_tower.gd" id="1_ajb3i"]
+[ext_resource type="Script" path="res://scenes/Towers/CollisionShape2D.gd" id="3_3uhxw"]
+[ext_resource type="Script" path="res://scenes/Towers/ProgressBar.gd" id="4_6tngy"]
+[ext_resource type="Texture2D" uid="uid://bqef3innhkeme" path="res://assets/PNG/Default size/towerDefense_tile110.png" id="4_f1a3w"]
+[ext_resource type="Texture2D" uid="uid://d2h5q8lh75te6" path="res://assets/PNG/Default size/towerDefense_tile297.png" id="5_7h2cw"]
+[ext_resource type="Texture2D" uid="uid://l11h76nxjpx8" path="res://assets/PNG/Default size/towerDefense_tile296.png" id="6_ux4ux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5prh7"]
 size = Vector2(113, 89)
@@ -70,6 +75,12 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c315w"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odi4c"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6mm3"]
+bg_color = Color(0, 1, 0, 1)
+
 [node name="RedBulletTower" type="StaticBody2D"]
 input_pickable = true
 script = ExtResource("1_ajb3i")
@@ -90,6 +101,7 @@ position = Vector2(62, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tower"]
 shape = SubResource("CircleShape2D_vqudl")
+script = ExtResource("3_3uhxw")
 
 [node name="BulletContainer" type="Node" parent="."]
 
@@ -136,6 +148,10 @@ offset_bottom = 155.0
 text = "10000"
 horizontal_alignment = 1
 
+[node name="TowerDefenseTile110" type="Sprite2D" parent="Upgrade/UpgradePanel/HBoxContainer/Range"]
+position = Vector2(63, 63)
+texture = ExtResource("4_f1a3w")
+
 [node name="AtackSpeed" type="Button" parent="Upgrade/UpgradePanel/HBoxContainer"]
 custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
@@ -152,6 +168,10 @@ offset_right = 125.0
 offset_bottom = 155.0
 text = "10000"
 horizontal_alignment = 1
+
+[node name="TowerDefenseTile297" type="Sprite2D" parent="Upgrade/UpgradePanel/HBoxContainer/AtackSpeed"]
+position = Vector2(63, 63)
+texture = ExtResource("5_7h2cw")
 
 [node name="Power" type="Button" parent="Upgrade/UpgradePanel/HBoxContainer"]
 custom_minimum_size = Vector2(125, 125)
@@ -170,6 +190,30 @@ offset_bottom = 155.0
 text = "10000"
 horizontal_alignment = 1
 
+[node name="TowerDefenseTile296" type="Sprite2D" parent="Upgrade/UpgradePanel/HBoxContainer/Power"]
+position = Vector2(63, 63)
+texture = ExtResource("6_ux4ux")
+
+[node name="ProgressBar" type="ProgressBar" parent="Upgrade"]
+offset_left = -63.0
+offset_top = -112.0
+offset_right = 65.0
+offset_bottom = -93.0
+theme_override_styles/background = SubResource("StyleBoxFlat_odi4c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q6mm3")
+value = 50.0
+show_percentage = false
+script = ExtResource("4_6tngy")
+
+[node name="Timer" type="Timer" parent="Upgrade/ProgressBar"]
+wait_time = 3.0
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
+[connection signal="mouse_entered" from="Upgrade/UpgradePanel/HBoxContainer/Range" to="." method="_on_range_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrade/UpgradePanel/HBoxContainer/Range" to="." method="_on_range_mouse_exited"]
+[connection signal="pressed" from="Upgrade/UpgradePanel/HBoxContainer/Range" to="." method="_on_range_pressed"]
+[connection signal="pressed" from="Upgrade/UpgradePanel/HBoxContainer/AtackSpeed" to="." method="_on_atack_speed_pressed"]
+[connection signal="pressed" from="Upgrade/UpgradePanel/HBoxContainer/Power" to="." method="_on_power_pressed"]
+[connection signal="timeout" from="Upgrade/ProgressBar/Timer" to="." method="_on_timer_timeout"]

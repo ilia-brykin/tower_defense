@@ -5,3 +5,4 @@
 ## [Part 3: (Homing Missile Rockets & Rotating Towers)](https://www.youtube.com/watch?v=AXW4R05ACs0&t=712s)
 ## [Part 4: (Drag and drop Towers)](https://www.youtube.com/watch?v=h_DsnB-shEE&t=20s)
 ## [Part 5: (Tower Upgrades & Drawing Circles)](https://www.youtube.com/watch?v=hWNDX5C80As&list=PLPuNhh82sRgk7S85quXb2_XI8b_jbmruB&index=5)
+## [Part 6: (Tower Powers & Tower Reloading Bullets)](https://www.youtube.com/watch?v=xkI6Q3zw8Ps&list=PLPuNhh82sRgk7S85quXb2_XI8b_jbmruB&index=6)

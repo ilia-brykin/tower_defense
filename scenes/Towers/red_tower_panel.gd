@@ -53,6 +53,6 @@ func get_current_tile() -> Vector2i:
 
 func change_area_for_tower() -> void:
 	if current_tile == grass_tile:
-		get_child(1).get_node("Area").modulate = Color(0, 255, 0, 0.5)
+		get_child(1).get_node("Area").modulate = Color(0, 255, 0, 0.3)
 	else:
-		get_child(1).get_node("Area").modulate = Color(255, 255, 255, 0.5)
+		get_child(1).get_node("Area").modulate = Color(255, 255, 255, 0.3)
