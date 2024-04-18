@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dxjc0wlwqoyr0" path="res://assets/Tilesheet/towerDefense_tilesheet.png" id="1_o3p1g"]
 [ext_resource type="Script" path="res://scenes/PathSpawner.gd" id="2_1wanw"]
-[ext_resource type="PackedScene" uid="uid://b5tdt4ga78a8u" path="res://scenes/Towers/red_bullet_tower.tscn" id="3_nxabk"]
+[ext_resource type="PackedScene" uid="uid://b2m06hmjumr7x" path="res://scenes/UI/ui.tscn" id="4_rj07t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrw3e"]
 texture = ExtResource("1_o3p1g")
@@ -331,13 +331,6 @@ autostart = true
 
 [node name="Towers" type="Node2D" parent="."]
 
-[node name="RedBulletTower" parent="Towers" instance=ExtResource("3_nxabk")]
-position = Vector2(618, 461)
-
-[node name="RedBulletTower2" parent="Towers" instance=ExtResource("3_nxabk")]
-position = Vector2(644, 257)
-
-[node name="RedBulletTower3" parent="Towers" instance=ExtResource("3_nxabk")]
-position = Vector2(386, 458)
+[node name="UI" parent="." instance=ExtResource("4_rj07t")]
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
