@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb380abdmvkf3"]
+[gd_scene load_steps=4 format=3 uid="uid://bb380abdmvkf3"]
 
 [ext_resource type="Script" path="res://scenes/Towers/red_tower_panel.gd" id="1_5yri1"]
 [ext_resource type="Texture2D" uid="uid://dde1r3ov8ix0f" path="res://assets/PNG/Default size/towerDefense_tile250.png" id="2_phbf2"]
+[ext_resource type="Texture2D" uid="uid://cj46kpt3iovxm" path="res://assets/PNG/Default size/towerDefense_tile275.png" id="3_7r18q"]
 
 [node name="RedTowerPanel" type="Panel"]
 custom_minimum_size = Vector2(150, 150)
@@ -14,5 +15,18 @@ script = ExtResource("1_5yri1")
 position = Vector2(73.6, 73.6)
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("2_phbf2")
+
+[node name="Label" type="Label" parent="TowerDefenseTile250"]
+offset_left = 4.27273
+offset_top = 12.5682
+offset_right = 26.2727
+offset_bottom = 35.5682
+text = "10
+"
+
+[node name="TowerDefenseTile275" type="Sprite2D" parent="TowerDefenseTile250"]
+position = Vector2(29.5, 27.7955)
+scale = Vector2(0.454545, 0.454545)
+texture = ExtResource("3_7r18q")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

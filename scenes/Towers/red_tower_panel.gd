@@ -7,6 +7,9 @@ var grass_tile: Vector2i = Vector2i(4, 5)
 
 
 func _on_gui_input(event) -> void:
+	if Game.gold < 10:
+		return
+		
 	var tower_instance: StaticBody2D = tower.instantiate()
 	if event is InputEventMouseButton and event.button_mask == 1: # left click down
 		add_child(tower_instance)
@@ -39,10 +42,13 @@ func get_mouse_position() -> Vector2:
 
 func add_new_tower(tower_instance: StaticBody2D, drop_position: Vector2) -> void:
 	if current_tile == grass_tile:
-		var towers_node: Node2D = get_tree().get_root().get_node("Main/Towers")
-		tower_instance.global_position = drop_position
-		towers_node.add_child(tower_instance)
-		tower_instance.get_node("Area").hide()
+		var targets: Array = get_child(1).get_node("TowerDetector").get_overlapping_bodies() # TODO: not working
+		if targets.size() == 0:
+			var towers_node: Node2D = get_tree().get_root().get_node("Main/Towers")
+			tower_instance.global_position = drop_position
+			towers_node.add_child(tower_instance)
+			tower_instance.get_node("Area").hide()
+			Game.gold -= 10
 
 
 func get_current_tile() -> Vector2i:
@@ -52,7 +58,9 @@ func get_current_tile() -> Vector2i:
 
 
 func change_area_for_tower() -> void:
-	if current_tile == grass_tile:
+	var targets: Array = get_child(1).get_node("TowerDetector").get_overlapping_bodies() # TODO: not working
+	
+	if current_tile == grass_tile and targets.size() == 0:
 		get_child(1).get_node("Area").modulate = Color(0, 255, 0, 0.3)
 	else:
 		get_child(1).get_node("Area").modulate = Color(255, 255, 255, 0.3)

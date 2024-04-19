@@ -7,3 +7,4 @@
 ## [Part 5: (Tower Upgrades & Drawing Circles)](https://www.youtube.com/watch?v=hWNDX5C80As&list=PLPuNhh82sRgk7S85quXb2_XI8b_jbmruB&index=5)
 ## [Part 6: (Tower Powers & Tower Reloading Bullets)](https://www.youtube.com/watch?v=xkI6Q3zw8Ps&list=PLPuNhh82sRgk7S85quXb2_XI8b_jbmruB&index=6)
 ## [Part 7: (Main Menu)](https://www.youtube.com/watch?v=8mpbNE00Ouc&t=8s)
+## [Part 8: (Using Area2D to Detect Other Near by Towers)](https://www.youtube.com/watch?v=WO-Zi-IWNOM&list=PLPuNhh82sRgk7S85quXb2_XI8b_jbmruB&index=8)
